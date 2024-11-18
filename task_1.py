@@ -13,19 +13,16 @@ class Route:
         return sum(self.distances)
 
     def num_stops(self):
-        return len(self.distances) - 1  # Кількість привалів (на 1 менше ніж переходів)
+        return len(self.distances) - 1  
 
     def max_distance(self):
         return max(self.distances)
 
-    # Перевантаження операторів порівняння за довжиною маршруту
     def __lt__(self, other):
         return self.total_length() < other.total_length()
 
     def __eq__(self, other):
         return self.total_length() == other.total_length()
-
-# Створення списку маршрутів вручну
 routes = [
     Route('Кваси', 'Дземброня', 8, 8, 12, 18, 12),
     Route('Ясіня', 'Говерла', 5, 7, 9, 10, 8),
@@ -39,15 +36,14 @@ routes = [
     Route('Бережани', 'Тернопіль', 12, 8, 11)
 ]
 
-# Упорядкування маршрутів за довжиною
+
 routes.sort()
 
-# Виведення всіх маршрутів
 print("Упорядковані маршрути:")
 for route in routes:
     print(route)
 
-# Функція для знаходження маршруту з максимальною кількістю привалів
+
 def route_with_max_stops(routes):
     max_stops_route = routes[0]
     for route in routes:
@@ -55,7 +51,6 @@ def route_with_max_stops(routes):
             max_stops_route = route
     return max_stops_route
 
-# Функція для знаходження маршруту з найдовшим переходом
 def route_with_longest_leg(routes):
     longest_leg_route = routes[0]
     for route in routes:
@@ -63,7 +58,6 @@ def route_with_longest_leg(routes):
             longest_leg_route = route
     return longest_leg_route
 
-# Функція для пошуку маршрутів за початковою або кінцевою точкою
 def routes_with_start_or_finish(routes, point):
     matching_routes = []
     for route in routes:
@@ -71,18 +65,15 @@ def routes_with_start_or_finish(routes, point):
             matching_routes.append(route)
     return matching_routes
 
-# Виведення маршруту з максимальною кількістю привалів
 max_stops_route = route_with_max_stops(routes)
 print("\nМаршрут з максимальною кількістю привалів:")
 print(max_stops_route)
 
-# Виведення маршруту з найдовшим переходом
 longest_leg_route = route_with_longest_leg(routes)
 print("\nМаршрут з найдовшим переходом:")
 print(longest_leg_route)
 
-# Пошук маршрутів за початковою або кінцевою точкою
-point = 'Кваси'  # Вкажіть бажану точку
+point = 'Кваси'  
 matching_routes = routes_with_start_or_finish(routes, point)
 print(f"\nМаршрути з початком або кінцем у '{point}':")
 for route in matching_routes:
