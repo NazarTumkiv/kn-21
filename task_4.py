@@ -1,6 +1,6 @@
 def shell_sort(arr, ascending=True):
     n = len(arr)
-    gap = n // 2  
+    gap = n // 2 
 
     while gap > 0:
         for i in range(gap, n):
@@ -11,7 +11,7 @@ def shell_sort(arr, ascending=True):
                 while j >= gap and arr[j - gap] > temp:
                     arr[j] = arr[j - gap]
                     j -= gap
-         
+           
             else:
                 while j >= gap and arr[j - gap] < temp:
                     arr[j] = arr[j - gap]
@@ -23,7 +23,7 @@ def shell_sort(arr, ascending=True):
     return arr
 
 if __name__ == "__main__":
-    
+  
     example_list = [23, 12, 1, 8, 34, 54, 2, 3]
 
     sorted_list_ascending = shell_sort(example_list[:], ascending=True)
